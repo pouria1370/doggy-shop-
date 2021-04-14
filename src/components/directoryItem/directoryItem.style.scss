@@ -1,0 +1,55 @@
+.card {
+    display: flex;
+    width: 22vw;
+    border: 1px solid #411545;
+    flex-direction: column;
+    padding: 10px;
+    margin: 12px ;
+    height: 350px;
+    position: relative;
+    .image-container{
+        width: 100%;
+        height: 95%;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .card-details {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .race-container {
+        font-size: 12px;
+        font-weight: bold;
+        
+    }
+
+    .age-container {
+
+        font-size: 12px;
+        font-weight: bold;
+        
+    }
+
+    .price-container {
+        font-size: 12px;
+        font-weight: bold;
+        
+    }
+    .add-to-cart{
+        position: absolute;
+        top: 165px;
+        left:70px;
+    
+        width: 10vw;
+        display: none;
+    }
+    &:hover{
+        .add-to-cart{
+            display: block;
+            opacity: 0.8;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.dogs-viewer{
+    display: flex;
+    flex-direction: column;
+    .dogs{
+
+        display: flex;
+        flex-direction: row;
+    }
+    .details-dogs{
+        display: flex;
+        flex-direction: row;
+        margin-left: 10px;
+    }
+    .title{
+        font-size: 20px;
+        font-style: oblique
+    }
+    .authority{
+        font-size: 20px;
+        font-style: oblique;
+
+    }
+}

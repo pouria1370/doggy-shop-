@@ -1,0 +1,32 @@
+   .footer {
+       display: flex;
+       flex-direction: column;
+       background-color: #241212;
+       columns: #635241;
+       position: sticky;
+
+       .social-medias {
+           display: flex;
+           flex-direction: row;
+           justify-content: space-around;
+       }
+
+       .good-links {
+           display: flex;
+           flex-direction: row;
+           justify-content: space-around;
+       }
+
+       .other-products {
+           display: flex;
+           flex-direction: row;
+           justify-content: space-around;
+       }
+
+       .rights {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+color: #635241;
+       }
+   }
