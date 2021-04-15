@@ -1,10 +1,10 @@
 import React from 'react'
-const  SignInAndSignOut=()=> {
+
+ const Button=()=> {
     return (
         <div>
             
         </div>
     )
 }
-
-export default SignInAndSignOut
+export default Button

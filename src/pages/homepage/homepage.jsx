@@ -1,27 +1,25 @@
 import React, { Component } from "react";
 import "./homepage.style.scss";
-import DirectoryViewer from "../../components/directoryViewer/directoryViewer.component";
-import { SHOP_DOGS } from "../../datas/shop-doggy.js";
-
+import { HOME_DOGS } from "../../datas/home-doggy.js";
+import HomeDirectoryViewer from '../../components/homeDirectoryViewer/homeDirectoryViewer.component'
 class Homepage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Collection: SHOP_DOGS,
+      Collection: HOME_DOGS,
     };
   }
 
   render() {
     
-    const shoppy = Object.keys(this.state.Collection).map(
+    const homeDogsToArray = Object.keys(this.state.Collection).map(
       (index) => this.state.Collection[index]
     );
-    console.log(shoppy.map(item=>item.dogs));
+    console.log(homeDogsToArray.map(item=>item.title));
     return (
-      <div className="home-page">
-        {shoppy.map(({ id, ...otherProps }) => (
-          <DirectoryViewer key={id} {...otherProps} />
-        ))}
+      <div>
+        <div className="homePage-title">CROWN-DOGGY</div>
+        <HomeDirectoryViewer/>
       </div>
     );
   }

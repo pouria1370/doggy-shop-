@@ -1,5 +1,6 @@
 import React from 'react'
-const  SignInAndSignOut=()=> {
+
+const SignIn=()=> {
     return (
         <div>
             
@@ -7,4 +8,4 @@ const  SignInAndSignOut=()=> {
     )
 }
 
-export default SignInAndSignOut
+export default SignIn

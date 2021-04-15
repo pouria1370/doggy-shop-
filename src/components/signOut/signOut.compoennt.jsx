@@ -1,10 +1,12 @@
 import React from 'react'
-const  SignInAndSignOut=()=> {
+import './signout.style.scss'
+
+
+const SignOut=()=> {
     return (
         <div>
             
         </div>
     )
 }
-
-export default SignInAndSignOut
+export default SignOut

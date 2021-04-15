@@ -18,7 +18,7 @@ class Shoppage extends Component {
     );
     console.log(shoppy.map(item=>item.dogs));
     return (
-      <div className="home-page">
+      <div className="shop-page">
         {shoppy.map(({ id, ...otherProps }) => (
           <DirectoryViewer key={id} {...otherProps} />
         ))}
