@@ -1,4 +1,4 @@
-.signIn{
+.signup{
 
     display: flex;
     flex-direction: column;
@@ -12,11 +12,12 @@
     .buttons{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
     }
-    .signIn-title{
-        margin-bottom: 30px;
-        }
+    .signup-title{
+    margin-bottom: 30px;
+    }
+    
 }
 
 @keyframes borderColor{
@@ -27,4 +28,6 @@
         border:1px solid #df3fa9 ;
         
     }
+
+   
 }

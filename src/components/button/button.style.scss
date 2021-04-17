@@ -1,0 +1,19 @@
+.button{
+    width: 40%;
+    height: 28px;
+    border: none;
+    color: aliceblue;
+    background-color: #244424;
+    &:hover{
+        background-color:black;
+        cursor: pointer;
+    }
+    &.google{
+        background-color:#1244ce;
+        &:hover{
+            background-color: black;
+            cursor: pointer;
+        }
+
+    }
+}
