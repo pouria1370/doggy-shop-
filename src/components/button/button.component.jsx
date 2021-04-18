@@ -4,7 +4,7 @@ const ButtonForm = ({ type, buttonName, changeHandler }) => {
   return (
     <button
       onClick={changeHandler}
-      className={buttonName.length > 5 ? "button google" : "button"}
+      className={buttonName.length >8 ? "button google" : "button"}
       type={type}
     >
       {buttonName}

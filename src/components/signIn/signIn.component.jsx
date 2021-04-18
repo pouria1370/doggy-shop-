@@ -2,7 +2,7 @@ import React from "react";
 import "./signIn.component.scss";
 import ButtonForm from "../button/button.component";
 import InputForm from "../input/input.component";
-
+import {signWithGoogle} from '../../firebase/firebase.utils'
 
 
 
@@ -27,21 +27,22 @@ class SignIn extends React.Component {
     return (
       <div className="signIn">
         <div className="signIn-title">
-          Please Sign in here and put your password and email
+          Please Sign in here 
         </div>
+        <form >
         <div>
           <InputForm
             changehandler={this.ChangeHandler}
             name="email"
             value={this.state.email}
             typeInput="email"
-            placeholder="your email"
+            placeholder="for example:youremail@example.com"
             label="Email:"
           />
           <InputForm
             changehandler={this.ChangeHandler}
             typeInput="password"
-            placeholder="your password"
+            placeholder="for example:123456"
             label="Password:"
             name="password"
             value={this.state.password}
@@ -49,7 +50,7 @@ class SignIn extends React.Component {
         </div>
         <div className="buttons">
           <ButtonForm
-            buttonName="Send"
+            buttonName="Sign in"
             type="submit"
             changeHandler={() =>
               console.log("i am fired up as SENT in SignIn_component")
@@ -58,13 +59,10 @@ class SignIn extends React.Component {
           <ButtonForm
             buttonName="Submit with Google"
             type="submit"
-            changeHandler={() =>
-              console.log(
-                "i am fired up as SUBMITWITHGOOGLE in SignIn_component"
-              )
-            }
+            changeHandler={signWithGoogle}
           />
         </div>
+        </form> 
       </div>
     );
   }

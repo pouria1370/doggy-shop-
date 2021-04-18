@@ -3,10 +3,8 @@ import "./input.style.scss";
 const InputForm = ({ value,name,typeInput, nameInput, label, placeholder,changehandler }) => {
   return (
     <div className="input-container">
-      <label className={value.length>0?
-        
-        "shrink-label":
-        "label"}>{label}</label>
+      <label className=
+        "label">{label}</label>
       <input
         placeholder={placeholder}
         required
