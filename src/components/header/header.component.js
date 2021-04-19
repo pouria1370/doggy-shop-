@@ -1,12 +1,12 @@
 import React from "react";
 import "./header.style.scss";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/4.1 crown.svg";
-import {auth} from '../../firebase/firebase.utils'
-import HomeRoundedIcon from '@material-ui/icons/HomeRounded'
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { auth } from "../../firebase/firebase.utils";
+import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import { connect } from "react-redux";
-
+import Shopicon from "../shopicon/shopicon.component.jsx";
+import Dropdown from "../header/header.component";
 const Header = ({ isGoogleSignedIn }) => {
   return (
     <div className="header">
@@ -15,13 +15,15 @@ const Header = ({ isGoogleSignedIn }) => {
       </div>
       <div className="options">
         <Link className="option" to="/">
-          <HomeRoundedIcon/>
+          <HomeRoundedIcon />
         </Link>
         <Link className="option" to="/shop">
-          <ShoppingCartIcon/>
+          Shop
         </Link>
         {isGoogleSignedIn ? (
-          <div className="option" onClick={()=>auth.signOut()}>Sign Out</div>
+          <div className="option" onClick={() => auth.signOut()}>
+            Sign Out
+          </div>
         ) : (
           <Link className="option" to="/signIn">
             Sign in
@@ -30,11 +32,13 @@ const Header = ({ isGoogleSignedIn }) => {
         <Link className="option" to="/contact">
           Contact
         </Link>
+        <Shopicon />
       </div>
+      <Dropdown />
     </div>
   );
 };
-const mapStateToProps=(state)=>(
-  {isGoogleSignedIn:state.authentication.currentUser}
-)
+const mapStateToProps = (state) => ({
+  isGoogleSignedIn: state.authentication.currentUser,
+});
 export default connect(mapStateToProps)(Header);

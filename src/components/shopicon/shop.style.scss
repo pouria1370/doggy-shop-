@@ -1,0 +1,12 @@
+.shop-icon{
+
+    display: flex;
+    flex-direction:column ;
+    justify-content: center;
+
+    .number{
+        position: absolute;
+        top: 24px;
+        right: 37px;
+    }
+}
