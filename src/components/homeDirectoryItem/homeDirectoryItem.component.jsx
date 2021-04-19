@@ -1,6 +1,6 @@
 import React from "react";
 import "./homeDirectoryItem.style.scss";
-import { Paper, Button } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 
 const HomeDirectoryItem = ({ imageUrl, title }) => {
   return (
@@ -10,6 +10,7 @@ const HomeDirectoryItem = ({ imageUrl, title }) => {
         <img
           className="image"
           src={ imageUrl}
+          
         />
       </div>
     </Paper>

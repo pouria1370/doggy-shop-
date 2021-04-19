@@ -1,8 +1,11 @@
 import React from "react";
 import "./header.style.scss";
-import { Link, Redirect } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/4.1 crown.svg";
 import {auth} from '../../firebase/firebase.utils'
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { connect } from "react-redux";
 
 const Header = ({ isGoogleSignedIn }) => {
   return (
@@ -12,10 +15,10 @@ const Header = ({ isGoogleSignedIn }) => {
       </div>
       <div className="options">
         <Link className="option" to="/">
-          Home
+          <HomeRoundedIcon/>
         </Link>
         <Link className="option" to="/shop">
-          Shop
+          <ShoppingCartIcon/>
         </Link>
         {isGoogleSignedIn ? (
           <div className="option" onClick={()=>auth.signOut()}>Sign Out</div>
@@ -31,4 +34,7 @@ const Header = ({ isGoogleSignedIn }) => {
     </div>
   );
 };
-export default Header;
+const mapStateToProps=(state)=>(
+  {isGoogleSignedIn:state.authentication.currentUser}
+)
+export default connect(mapStateToProps)(Header);

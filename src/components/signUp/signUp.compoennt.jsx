@@ -24,7 +24,7 @@ class SignUp extends React.Component {
 
   async submitHandler(event) {
     event.preventDefault();
-    const { password, email, confirmation, name, familyName,displayName } = this.state;
+    const { password, email, confirmation ,displayName } = this.state;
     if (password !== confirmation) {
       alert("your password is mismatched");
       return;

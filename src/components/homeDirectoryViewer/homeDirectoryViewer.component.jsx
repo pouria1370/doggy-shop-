@@ -6,9 +6,7 @@ import Carousel from 'react-material-ui-carousel'
 
 
 class HomeDirectoryViewer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+ 
   
 
   render() {
