@@ -1,4 +1,34 @@
 .dropdown{
+position:absolute;
+    height: 200px;
+    width: 15vw;
+    right: 30px;
+    top:80px;
+    border:1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 5;
+    background-color: rgba( #000000, 0.1);
+    .dropdown-text{
+        animation: opacityMaker 1s ease-in-out infinite alternate-reverse ;
+    }
+    .dropdown-button{
+display: flex;
+flex-direction: row;
+        justify-content: center;
+       
+    }
 
+}
+
+@keyframes opacityMaker {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0.2;
+        color:#963524
+    }
     
 }

@@ -11,6 +11,11 @@ const dropdownReducer = (state = INITIAL_STATE, action) => {
         ...state,
         hidden:!state.hidden,
       };
+      case dropdownTypes.SET_HIDDEN_FROM_HEADER:
+        return{
+          ...state,
+          hidden:true,
+        }
 
     default:
       return state;

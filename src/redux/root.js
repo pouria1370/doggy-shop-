@@ -5,5 +5,5 @@ import dropdownReducer from './dropdown/dropdownReducer'
 
 export default combineReducers({
     authentication:authenticationReducer,
-    dopdown:dropdownReducer
+    dropdown:dropdownReducer
 })

@@ -1,7 +1,7 @@
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import "./shop.style.scss";
 import { connect } from "react-redux";
-import setHidden from '../../redux/dropdown/dropdown.actions'
+import {setHidden} from '../../redux/dropdown/dropdown.actions'
 const Shopicon = ({ToggleCondition}) => (
   <div className="shop-icon" onClick={ToggleCondition}>
     <div className="icon">

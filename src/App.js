@@ -9,6 +9,7 @@ import { auth, objectCRUD } from "../src/firebase/firebase.utils";
 import React from "react";
 import { connect } from "react-redux";
 import setAuthentication from "../src/redux/authentication/authenticationActions";
+import Dropdown from "./components/dropdown/dropdown.component.jsx";
 
 class App extends React.Component {
   subscribe = null;
@@ -22,8 +23,7 @@ class App extends React.Component {
             ...snapShot.data(),
           });
         });
-      } else
-        this.props.setAuthenticator(userAuth)
+      } else this.props.setAuthenticator(userAuth);
     });
   }
 
@@ -31,14 +31,22 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
+        {(this.props.condition ? null : <Dropdown />)}
 
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/shop" component={Shoppage} />
-          <Route exact path="/signIn" render={()=>this.props.authentication?
-          <Redirect to="/"/>:
-          <SignInAndSignOut/>
-          } />
+          <Route
+            exact
+            path="/signIn"
+            render={() =>
+              this.props.authentication ? (
+                <Redirect to="/" />
+              ) : (
+                <SignInAndSignOut />
+              )
+            }
+          />
         </Switch>
         <Footer />
       </div>
@@ -48,7 +56,11 @@ class App extends React.Component {
 const mapDispatchToProps = (dispatch) => ({
   setAuthenticator: (user) => dispatch(setAuthentication(user)),
 });
-const mapStateToProps=state=>({
-  authentication:state.authentication.currentUser
-})
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+const mapStateToProps = ({
+  authentication: { currentUser },
+  dropdown: { hidden },
+}) => ({
+  authentication: currentUser,
+  condition: hidden,
+});
+export default connect(mapStateToProps, mapDispatchToProps)(App);

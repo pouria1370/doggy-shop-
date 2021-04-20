@@ -1,8 +1,12 @@
-const setHidden=()=>({
+export const setHidden=()=>({
 
 type:"TOGGLE_TO_HIDDEN",
 
 
 })
+export const setHiddenFromHeader=()=>({
 
-export default setHidden
+    type:"SET_HIDDEN_FROM_HEADER",
+    
+    
+    })
