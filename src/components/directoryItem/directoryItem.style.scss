@@ -4,10 +4,11 @@
     border: 1px solid #411545;
     flex-direction: column;
     padding: 10px;
-    margin: 12px ;
+    margin: 12px;
     height: 350px;
     position: relative;
-    .image-container{
+
+    .image-container {
         width: 100%;
         height: 95%;
         background-size: cover;
@@ -23,33 +24,41 @@
     .race-container {
         font-size: 12px;
         font-weight: bold;
-        
+
     }
 
     .age-container {
 
         font-size: 12px;
         font-weight: bold;
-        
+
     }
 
     .price-container {
         font-size: 12px;
         font-weight: bold;
-        
+
     }
-    .add-to-cart{
+
+    .add-to-cart {
         position: absolute;
         top: 165px;
-        left:70px;
-    
+        left: 70px;
+
         width: 10vw;
         display: none;
     }
-    &:hover{
-        .add-to-cart{
+
+    &:hover {
+        .add-to-cart {
             display: block;
             opacity: 0.8;
         }
+    }
+
+    .directoryItem_button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 }

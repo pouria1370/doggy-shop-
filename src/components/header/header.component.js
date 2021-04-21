@@ -5,15 +5,15 @@ import { ReactComponent as Logo } from "../../assets/4.1 crown.svg";
 import { auth } from "../../firebase/firebase.utils";
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import { connect } from "react-redux";
-import {setHiddenFromHeader} from '../../redux/dropdown/dropdown.actions'
+import { setHiddenFromHeader } from "../../redux/dropdown/dropdown.actions";
 import Shopicon from "../shopicon/shopicon.component.jsx";
-const Header = ({ isGoogleSignedIn ,ToggleCondition}) => {
+const Header = ({ isGoogleSignedIn, ToggleCondition }) => {
   return (
-    <div className="header" >
+    <div className="header">
       <div className="icon">
         <Logo />
       </div>
-      <div className="options" >
+      <div className="options">
         <Link className="option" to="/" onClick={ToggleCondition}>
           <HomeRoundedIcon />
         </Link>
@@ -21,7 +21,13 @@ const Header = ({ isGoogleSignedIn ,ToggleCondition}) => {
           Shop
         </Link>
         {isGoogleSignedIn ? (
-          <div className="option" onClick={() => auth.signOut()} onClick={ToggleCondition}>
+          <div
+            className="option"
+            onClick={() => {
+              ToggleCondition();
+              auth.signOut();
+            }}
+          >
             Sign Out
           </div>
         ) : (
@@ -37,13 +43,12 @@ const Header = ({ isGoogleSignedIn ,ToggleCondition}) => {
     </div>
   );
 };
-const mapDispatchToProps=(dispatch)=>({
-
-  ToggleCondition:()=>dispatch(setHiddenFromHeader())
-})
+const mapDispatchToProps = (dispatch) => ({
+  ToggleCondition: () => dispatch(setHiddenFromHeader()),
+});
 
 const mapStateToProps = (state) => ({
   isGoogleSignedIn: state.authentication.currentUser,
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

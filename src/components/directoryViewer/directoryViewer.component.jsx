@@ -12,9 +12,9 @@ const DirectoryViewer = ({dogs, authority, title }) => {
     </div>
     <div className="dogs">
       {dogs
-        .filter((index) => index.id < 5)
-        .map(({ id, ...otherProps }) => (
-          <DirectoryItem key={id} {...otherProps} />
+        .filter((item,index) => index< 4)
+        .map((item) => (
+          <DirectoryItem item={item} key={item.id}  />
         ))}
     </div>
   </div>
