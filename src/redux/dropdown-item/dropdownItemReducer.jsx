@@ -1,7 +1,11 @@
 import { setDropdownItem } from "../utils";
-import {dropdownItemTypes} from '../dropdown-item/dropdownItemTypes'
+import { addDropdownItem} from "../utils";
+import { reduceDropdownItem} from "../utils";
+import { removeDropdownItem} from "../utils";
+import { dropdownItemTypes } from "../dropdown-item/dropdownItemTypes";
 const INITIAL_STATE = {
   dropdownItems: [],
+  number: 0,
 };
 
 const dropdownItemReducer = (state = INITIAL_STATE, action) => {
@@ -10,17 +14,29 @@ const dropdownItemReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         dropdownItems: setDropdownItem(action.payload, state.dropdownItems),
+        //number:quantityAccumulator(state.dropdownItems)
       };
-      break;
-    // case dropdownItemTypes.REMOVE_DROPDOWN_ITEM:
-    //   return {
-    //     ...state,
-    //     dropdownItems: removeDropdownItem(action.payload),
-    //   };
-    //   break;
+      
+    case dropdownItemTypes.REMOVE_DROPDOWN_ITEM:
+      return {
+        ...state,
+        dropdownItems: removeDropdownItem(action.payload, state.dropdownItems),
+      };
+      
+    case dropdownItemTypes.REDUCE_DROPDOWN_ITEM:
+      return {
+        ...state,
+        dropdownItems: reduceDropdownItem(action.payload, state.dropdownItems),
+      };
+    case dropdownItemTypes.ADD_DROPDOWN_ITEM:
+      return {
+        ...state,
+        dropdownItems: addDropdownItem(action.payload, state.dropdownItems),
+      };
+      
 
     default:
       return state;
   }
 };
-export default dropdownItemReducer
+export default dropdownItemReducer;
