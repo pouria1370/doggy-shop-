@@ -7,6 +7,9 @@ import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import { connect } from "react-redux";
 import { setHiddenFromHeader } from "../../redux/dropdown/dropdown.actions";
 import Shopicon from "../shopicon/shopicon.component.jsx";
+import {createStructuredSelector} from 'reselect'
+import {authenticationSelector} from '../../redux/authentication/authenticationSelectors'
+
 const Header = ({ isGoogleSignedIn, ToggleCondition }) => {
   return (
     <div className="header">
@@ -47,8 +50,8 @@ const mapDispatchToProps = (dispatch) => ({
   ToggleCondition: () => dispatch(setHiddenFromHeader()),
 });
 
-const mapStateToProps = (state) => ({
-  isGoogleSignedIn: state.authentication.currentUser,
+const mapStateToProps = createStructuredSelector ({
+  isGoogleSignedIn: authenticationSelector
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

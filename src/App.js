@@ -10,7 +10,7 @@ import React from "react";
 import { connect } from "react-redux";
 import setAuthentication from "../src/redux/authentication/authenticationActions";
 import Dropdown from "./components/dropdown/dropdown.component.jsx";
-
+import CheckOut from './pages/checkout/checkout.page'
 class App extends React.Component {
   subscribe = null;
   componentDidMount() {
@@ -36,6 +36,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/shop" component={Shoppage} />
+          <Route to='/checkout' component={CheckOut}/>
           <Route
             exact
             path="/signIn"

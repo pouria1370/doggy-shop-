@@ -1,0 +1,58 @@
+.checkout{
+    
+        
+        width: 90vw;
+        height: 90vh;
+        position: relative;
+        left:20px;
+        right: 20px;
+        border:1px solid black;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        overflow-y: scroll;
+        
+       
+        .checkout-list{
+            position: relative;
+            top: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            margin-top: 15px;
+        }
+        .checkout-header{
+            display: flex;
+            position: relative;
+            top: 30px;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-bottom: 8px;
+            margin-top: 2px;
+        }
+        .checkout-payment{
+            display: flex;
+            position: relative;
+            top: 50px;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-bottom: 18px;
+            margin-top: 23px;
+            &.total{
+                position: relative;
+                top: -14px;
+            }
+        }
+    }
+    
+    @keyframes opacityMaker {
+        from{
+            opacity: 1;
+        }
+        to{
+            opacity: 0.2;
+            color:#963524
+        }
+        
+    }

@@ -5,6 +5,7 @@ import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import { connect } from "react-redux";
 import {addItemToDropdown} from '../../redux/dropdown-item/dropdownItemAction'
 import {reduceItemToDropdown} from '../../redux/dropdown-item/dropdownItemAction'
+
 const DropdownItem = ({ item,addItem,reduceItem }) => {
   const { imageUrl, quantity, race, title } = item;
   return (<div className="dropdownItem">
