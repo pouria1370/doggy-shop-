@@ -1,29 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import "./shop.style.scss";
-import DirectoryViewer from "../../components/directoryViewer/directoryViewer.component";
-import { SHOP_DOGS } from "../../datas/shop-doggy.js";
-
-class Shoppage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      Collection: SHOP_DOGS,
-    };
-  }
-
-  render() {
+import {Route} from 'react-router-dom'
+import CollectionOverview from '../../components/CollectionOverview/CollectionOverview.component.jsx'
+import ShopOverview from '../../components/shopOverview/shopOverView.component.jsx' 
+const Shoppage = ({match}) => {
+ 
+  return (
+    <div className="shop-page">
+      <Route exact path={`${match.path}`} component={ShopOverview}/>
+      <Route  path={`${match.path}/:collectionId`} component={CollectionOverview}/>
     
-    const shoppy = Object.keys(this.state.Collection).map(
-      (index) => this.state.Collection[index]
-    );
-    console.log(shoppy.map(item=>item.dogs));
-    return (
-      <div className="shop-page">
-        {shoppy.map(({ id, ...otherProps }) => (
-          <DirectoryViewer key={id} {...otherProps} />
-        ))}
       </div>
-    );
-  }
-}
-export default Shoppage;
+  );
+};
+
+export default Shoppage
