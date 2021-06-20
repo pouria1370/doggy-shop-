@@ -1,14 +1,15 @@
 import React from "react";
-import "./button.style.scss";
-const ButtonForm = ({ type, buttonName, changeHandler }) => {
+// import "./button.style.scss";
+import {ButtonContainer} from './button.style.js'
+const ButtonForm = ({ type,buttonName, changeHandler }) => {
   return (
-    <button
+    <ButtonContainer
       onClick={changeHandler}
-      className={buttonName.includes('Google') ? "button google" : "button"}
+      buttonName={buttonName}
       type={type}
     >
       {buttonName}
-    </button>
+    </ButtonContainer>
   );
 };
 export default ButtonForm;

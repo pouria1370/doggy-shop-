@@ -9,7 +9,7 @@ import shopReducer from './shop/shopReducer'
 const persistConfig={
     key:'root',
     storage,
-    whiteList:['dropdown']
+    whitelist:['dropdownItem']
 }
 const rootReducer= combineReducers({
     authentication:authenticationReducer,
