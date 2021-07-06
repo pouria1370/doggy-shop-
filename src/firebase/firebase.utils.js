@@ -39,6 +39,7 @@ export const objectCRUD = async (userAuth, ...aditonalData) => {
   return objectRefrence;
 };
 
+
 export const FetchingShopDataFromDB=(snapShotref)=>{
   const docs=snapShotref.docs.map(entitiy=>{
 
@@ -56,7 +57,17 @@ export const FetchingShopDataFromDB=(snapShotref)=>{
  return accumulator 
   },{})
 }
-const provider = new firebase.auth.GoogleAuthProvider();
+//این تابع برای سماجت در گرفتن مجوز ورود است
+export const authenticationPersistor=()=>{
+  return  new Promise((resolve,reject)=>{
+
+    const unsuscribed=auth.onAuthStateChanged(authObj=>{
+unsuscribed();
+resolve(authObj);
+    },reject)
+  })
+}
+export const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 export const signWithGoogle = () => auth.signInWithPopup(provider);
 

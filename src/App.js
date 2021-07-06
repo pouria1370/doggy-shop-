@@ -5,35 +5,34 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Shoppage from "./pages/shop/shop.page";
 import Footer from "./components/footer/footer.component";
 import SignInAndSignOut from "./pages/signInAndSignOut/signInAndSignOut.page";
-import {
-  auth,
-  objectCRUD,
-  
-} from "../src/firebase/firebase.utils";
 import React from "react";
 import { connect } from "react-redux";
-import setAuthentication from "../src/redux/authentication/authenticationActions";
+// import setAuthentication from "../src/redux/authentication/authenticationActions";
 import Dropdown from "./components/dropdown/dropdown.component.jsx";
 import CheckOut from "./pages/checkout/checkout.page";
 import { createStructuredSelector } from "reselect";
 import { authenticationSelector } from "./redux/authentication/authenticationSelectors";
 import { dropownSelector } from "./redux/dropdown/dropdown.selector.jsx";
+import {authenticationCheckUp} from './redux/authentication/authenticationActions'
+
 class App extends React.Component {
   subscribe = null;
   componentDidMount() {
-    const { collection } = this.props;
-    this.subscribe = auth.onAuthStateChanged(async (userAuth) => {
-      if (userAuth) {
-        const userRef = await objectCRUD(userAuth);
-        userRef.onSnapshot((snapShot) => {
-          this.props.setAuthenticator({
-            id: snapShot.id,
-            ...snapShot.data(),
-          });
-        });
-      } else this.props.setAuthenticator(userAuth);
+    // const { collection } = this.props;
+    // this.subscribe = auth.onAuthStateChanged(async (userAuth) => {
+    //   if (userAuth) {
+    //     const userRef = await objectCRUD(userAuth);
+    //     userRef.onSnapshot((snapShot) => {
+    //       this.props.setAuthenticator({
+    //         id: snapShot.id,
+    //         ...snapShot.data(),
+    //       });
+    //     });
+    //   } else this.props.setAuthenticator(userAuth);
       
-    });
+    // });
+    const{authenticationCheckUp}=this.props;
+    authenticationCheckUp();
   }
   componentWillUnmount() {
     this.subscribe();
@@ -66,10 +65,10 @@ class App extends React.Component {
   }
 }
 const mapDispatchToProps = (dispatch) => ({
-  setAuthenticator: (user) => dispatch(setAuthentication(user)),
+  authenticationCheckUp: () => dispatch(authenticationCheckUp()),
 });
 const mapStateToProps = createStructuredSelector({
   authentication: authenticationSelector,
   condition: dropownSelector,
 });
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);

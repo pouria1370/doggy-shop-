@@ -2,7 +2,7 @@ import React from "react";
 import "./header.style.scss";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/4.1 crown.svg";
-import { auth } from "../../firebase/firebase.utils";
+import { signOutStart } from "../../redux/authentication/authenticationActions";
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import { connect } from "react-redux";
 import { setHiddenFromHeader } from "../../redux/dropdown/dropdown.actions";
@@ -10,7 +10,7 @@ import Shopicon from "../shopicon/shopicon.component.jsx";
 import {createStructuredSelector} from 'reselect'
 import {authenticationSelector} from '../../redux/authentication/authenticationSelectors'
 
-const Header = ({ isGoogleSignedIn, ToggleCondition }) => {
+const Header = ({ signOutStart,isGoogleSignedIn, ToggleCondition }) => {
   return (
     <div className="header">
       <div className="icon">
@@ -26,9 +26,10 @@ const Header = ({ isGoogleSignedIn, ToggleCondition }) => {
         {isGoogleSignedIn ? (
           <div
             className="option"
-            onClick={() => {
-              ToggleCondition();
-              auth.signOut();
+            onClick={ () => {
+              // ToggleCondition();
+              signOutStart();
+              
             }}
           >
             Sign Out
@@ -48,6 +49,7 @@ const Header = ({ isGoogleSignedIn, ToggleCondition }) => {
 };
 const mapDispatchToProps = (dispatch) => ({
   ToggleCondition: () => dispatch(setHiddenFromHeader()),
+  signOutStart:()=>dispatch(signOutStart())
 });
 
 const mapStateToProps = createStructuredSelector ({

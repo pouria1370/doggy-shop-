@@ -2,11 +2,10 @@ import React from "react";
 import "./CollectionOverview.style.scss";
 import DirectoryItem from "../directoryItem/directoryItem.component"
 import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
 import { colectionOfCollectionsSelector } from "../../redux/shop/shopSelectors";
 
 const CollectionOverview = ({ collection, match }) => {
-  const { authority, dogs, title } = collection;
+  const { dogs, title } = collection;
   console.log(dogs);
   return (
     <div className="collectionOverview">

@@ -14,6 +14,7 @@ export const FetchCollectionSuccess = (objectCollection) => ({
   type: shopTypes.FETCH_COLLECTION_SUCCESS,
   payload: objectCollection,
 });
+// because of introduce Saga it is deprecated
 export const FetchCollectionAsyncStart = () => {
   return (dispatch) => {
     
@@ -28,3 +29,4 @@ export const FetchCollectionAsyncStart = () => {
     } 
   
 };
+// because of introduce Saga it is deprecated
